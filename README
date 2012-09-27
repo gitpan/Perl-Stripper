@@ -2,7 +2,7 @@ NAME
     Perl::Stripper - Yet another PPI-based Perl source code stripper
 
 VERSION
-    version 0.03
+    version 0.04
 
 SYNOPSIS
      use Perl::Stripper;
@@ -34,13 +34,17 @@ ATTRIBUTES
     Respected by other settings.
 
   strip_ws => BOOL (default: 1)
-    Strip extra whitespace. Under "maintain_linum", will not strip newlines.
+    Strip extra whitespace, like indentation, padding, even non-significant
+    newlines. Under "maintain_linum", will not strip newlines.
 
     Not yet implemented.
 
   strip_comment => BOOL (default: 1) | CODE
     If set to true, will strip comments. Under "maintain_linum" will replace
     comment lines with blank lines.
+
+    Shebang line (e.g. "#!/usr/bin/perl", located at the beginning of
+    script) will not be stripped.
 
     Can also be set to a coderef. Code will be given the PPI comment token
     object and expected to modify the object (e.g. using "set_content()"
@@ -83,8 +87,6 @@ METHODS
     Strip Perl source code. Return the stripped source code.
 
 TODO/IDEAS
-    *   Don't strip shebang line
-
     *   Option to mangle subroutine names
 
         With exclude and mangling options (dictionary, name mangler sub).

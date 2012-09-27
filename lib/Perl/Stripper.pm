@@ -8,7 +8,7 @@ use Log::Any qw($log);
 use PPI;
 use Moo;
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 has maintain_linum      => (is => 'rw', default => sub { 1 });
 has strip_comment       => (is => 'rw', default => sub { 1 });
@@ -59,6 +59,11 @@ sub strip {
             my ($top, $el) = @_;
 
             if ($self->strip_comment && $el->isa('PPI::Token::Comment')) {
+                # don't strip shebang line
+                if ($el->content =~ /^#!/) {
+                    my $loc = $el->location;
+                    return if $loc->[0] == 1 && $loc->[1] == 1;
+                }
                 if (ref($self->strip_comment) eq 'CODE') {
                     $self->strip_comment->($el);
                 } else {
@@ -144,7 +149,7 @@ Perl::Stripper - Yet another PPI-based Perl source code stripper
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -179,7 +184,8 @@ Respected by other settings.
 
 =head2 strip_ws => BOOL (default: 1)
 
-Strip extra whitespace. Under C<maintain_linum>, will not strip newlines.
+Strip extra whitespace, like indentation, padding, even non-significant
+newlines. Under C<maintain_linum>, will not strip newlines.
 
 Not yet implemented.
 
@@ -187,6 +193,9 @@ Not yet implemented.
 
 If set to true, will strip comments. Under C<maintain_linum> will replace
 comment lines with blank lines.
+
+Shebang line (e.g. C<#!/usr/bin/perl>, located at the beginning of script) will
+not be stripped.
 
 Can also be set to a coderef. Code will be given the PPI comment token object
 and expected to modify the object (e.g. using C<set_content()> method). See
@@ -237,8 +246,6 @@ Strip Perl source code. Return the stripped source code.
 =head1 TODO/IDEAS
 
 =over 4
-
-=item * Don't strip shebang line
 
 =item * Option to mangle subroutine names
 

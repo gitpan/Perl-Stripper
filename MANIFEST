@@ -9,7 +9,10 @@ README
 dist.ini
 lib/Perl/Stripper.pm
 t/00-compile.t
+t/01-basics.t
 t/data/1.pl
+t/data/1.pl-stripped-default
+t/data/1.pl-stripped-strip_log
 t/release-pod-coverage.t
 t/release-pod-syntax.t
 weaver.ini

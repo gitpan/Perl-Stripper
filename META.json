@@ -31,6 +31,12 @@
             "PPI" : 0,
             "perl" : "5.010001"
          }
+      },
+      "test" : {
+         "requires" : {
+            "File::Slurp" : 0,
+            "Test::More" : "0.98"
+         }
       }
    },
    "release_status" : "stable",
@@ -40,6 +46,6 @@
          "url" : "http://github.com/sharyanto/perl-Perl-Stripper"
       }
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
 
