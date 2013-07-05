@@ -19,7 +19,7 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Perl-Stripper",
-  "dist_version" => "0.04",
+  "dist_version" => "0.05",
   "license" => "perl",
   "module_name" => "Perl::Stripper",
   "recommends" => {},
@@ -28,6 +28,7 @@ my %module_build_args = (
     "Log::Any" => 0,
     "Moo" => 0,
     "PPI" => 0,
+    "experimental" => 0,
     "perl" => "5.010001"
   },
   "script_files" => []

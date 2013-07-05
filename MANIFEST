@@ -15,4 +15,5 @@ t/data/1.pl-stripped-default
 t/data/1.pl-stripped-strip_log
 t/release-pod-coverage.t
 t/release-pod-syntax.t
+t/release-rinci.t
 weaver.ini

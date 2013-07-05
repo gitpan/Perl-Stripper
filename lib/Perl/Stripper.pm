@@ -1,14 +1,15 @@
 package Perl::Stripper;
 
-use 5.010;
+use 5.010001;
 use strict;
 use warnings;
+use experimental 'smartmatch';
 use Log::Any qw($log);
 
 use PPI;
 use Moo;
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 has maintain_linum      => (is => 'rw', default => sub { 1 });
 has strip_comment       => (is => 'rw', default => sub { 1 });
@@ -143,13 +144,15 @@ sub strip {
 __END__
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Perl::Stripper - Yet another PPI-based Perl source code stripper
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
@@ -342,10 +345,15 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2013 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+=head1 FUNCTIONS
+
+
+None are exported by default, but they are exportable.
 
 =cut
 
