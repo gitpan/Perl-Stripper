@@ -1,15 +1,13 @@
 package Perl::Stripper;
 
 use 5.010001;
-use strict;
-use warnings;
-use experimental 'smartmatch';
 use Log::Any qw($log);
 
 use PPI;
 use Moo;
+use experimental 'smartmatch';
 
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.06'; # VERSION
 
 has maintain_linum      => (is => 'rw', default => sub { 1 });
 has strip_comment       => (is => 'rw', default => sub { 1 });
@@ -152,7 +150,7 @@ Perl::Stripper - Yet another PPI-based Perl source code stripper
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 SYNOPSIS
 

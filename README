@@ -2,7 +2,7 @@ NAME
     Perl::Stripper - Yet another PPI-based Perl source code stripper
 
 VERSION
-    version 0.05
+    version 0.06
 
 SYNOPSIS
      use Perl::Stripper;
