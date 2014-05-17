@@ -7,7 +7,7 @@ use PPI;
 use Moo;
 use experimental 'smartmatch';
 
-our $VERSION = '0.06'; # VERSION
+our $VERSION = '0.07'; # VERSION
 
 has maintain_linum      => (is => 'rw', default => sub { 1 });
 has strip_comment       => (is => 'rw', default => sub { 1 });
@@ -138,11 +138,11 @@ sub strip {
 1;
 #ABSTRACT: Yet another PPI-based Perl source code stripper
 
-
 __END__
+
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -150,7 +150,7 @@ Perl::Stripper - Yet another PPI-based Perl source code stripper
 
 =head1 VERSION
 
-version 0.06
+This document describes version 0.07 of Perl::Stripper (from Perl distribution Perl-Stripper), released on 2014-05-17.
 
 =head1 SYNOPSIS
 
@@ -337,21 +337,31 @@ L<Perl::Strip> - PPI-based, focus on compression.
 
 L<Perl::Squish> - PPI-based, focus on compression.
 
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/Perl-Stripper>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-Perl-Stripper>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=Perl-Stripper>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
 =head1 AUTHOR
 
 Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=head1 FUNCTIONS
-
-
-None are exported by default, but they are exportable.
-
 =cut
-
