@@ -1,13 +1,14 @@
 package Perl::Stripper;
 
+our $DATE = '2015-01-03'; # DATE
+our $VERSION = '0.08'; # VERSION
+
 use 5.010001;
 use Log::Any qw($log);
 
 use PPI;
 use Moo;
 use experimental 'smartmatch';
-
-our $VERSION = '0.07'; # VERSION
 
 has maintain_linum      => (is => 'rw', default => sub { 1 });
 has strip_comment       => (is => 'rw', default => sub { 1 });
@@ -136,7 +137,7 @@ sub strip {
 }
 
 1;
-#ABSTRACT: Yet another PPI-based Perl source code stripper
+# ABSTRACT: Yet another PPI-based Perl source code stripper
 
 __END__
 
@@ -150,7 +151,7 @@ Perl::Stripper - Yet another PPI-based Perl source code stripper
 
 =head1 VERSION
 
-This document describes version 0.07 of Perl::Stripper (from Perl distribution Perl-Stripper), released on 2014-05-17.
+This document describes version 0.08 of Perl::Stripper (from Perl distribution Perl-Stripper), released on 2015-01-03.
 
 =head1 SYNOPSIS
 
@@ -169,10 +170,6 @@ This document describes version 0.07 of Perl::Stripper (from Perl distribution P
 
 This module is yet another PPI-based Perl source code stripper. Its focus is on
 costumization and stripping significant information from source code.
-
-This module uses L<Moo> object system.
-
-This module uses L<Log::Any> logging framework.
 
 =head1 ATTRIBUTES
 
@@ -243,37 +240,6 @@ Constructor.
 =head2 $stripper->strip($perl) => STR
 
 Strip Perl source code. Return the stripped source code.
-
-=head1 TODO/IDEAS
-
-=over 4
-
-=item * Option to mangle subroutine names
-
-With exclude and mangling options (dictionary, name mangler sub).
-
-=item * Option to mangle name of lexical variables
-
-With exclude and mangling options (dictionary, name mangler sub).
-
-=item * Option to mangle name of global variables
-
-With exclude and mangling options (dictionary, name mangler sub). And exclude
-Perl's predefined variables like C<@ARGV>, C<%ENV>, and so on.
-
-=item * Option to mangle labels
-
-=item * Option to remove comments and whitespace in /x regexes
-
-=item * Option to remove certain code blocks
-
-Like:
-
- if ($DEBUG) { ... }
- if ($PRODUCTION) { ... }
- assert(...)
-
-=back
 
 =head1 FAQ
 
@@ -355,11 +321,11 @@ feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Steven Haryanto.
+This software is copyright (c) 2015 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
